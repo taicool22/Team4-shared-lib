@@ -1,14 +1,10 @@
 def call(string repoUrl){
-    pipeline {
+   pipeline {
        agent any
-       tools {
-           maven 'maven'
-       }
        stages {
            stage("Tools initialization") {
                steps {
-                   sh 'mvn --version'
-                   sh 'java -version'
+                   sh 'lscpu'
                }
            }
            stage("Checkout Code") {
@@ -19,9 +15,9 @@ def call(string repoUrl){
            }
            stage("to-test-maven") {
                steps {
-                   sh 'mvn -v'
+                   sh 'df -h'
                }
            }
        }
-}
+} 
 }
